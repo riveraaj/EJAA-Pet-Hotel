@@ -1,0 +1,379 @@
+
+/* ---------- TABLE ----------- */
+
+.table__wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    padding: 1rem 5%;
+}
+
+.title{
+    padding-left: calc(100 - 150px / 2);
+    text-align: center;
+} 
+
+
+.btnAdd{
+    align-self: flex-start;
+    padding: 1rem;
+    border: none;
+    outline: none;
+    border-radius: 2rem;
+    font-weight: bold;
+    color: var(--secondary-text-color);
+    box-shadow: 0 0 10px rgb(0 0 0 / 15%);
+    background-color: var(--primary-color);
+}
+.btnAdd i{
+    pointer-events: none;
+}
+
+.btnAdd:hover{
+    cursor: pointer;
+    background-color: var(--secondary-color);
+}
+
+
+ table{
+    width: 100%;
+    border-radius: 1rem;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgb(0 0 0 / 15%);
+    overflow: hidden;
+}
+
+.table__row{
+    overflow: hidden;
+}
+
+thead{
+    background-color: var(--primary-color);  
+    color: var(--secondary-text-color);
+}
+
+th,
+td{
+    text-align: center;
+    padding: 1rem;
+    /* pointer-events: none; */
+}
+
+th:first-child{
+    border-radius: 1rem 0 0 0 ;
+}
+
+th:last-child{
+    border-radius: 0 1rem 0 0 ;
+}
+.table__row{
+    background-color: var(--background-color);
+}
+.table__row:nth-child(odd){
+    background-color: var(--secondary-text-color);
+}
+
+
+.table__row:not(:last-child){
+    border-bottom: 1px solid #d3d1d1;
+}
+
+table button{
+    border: none;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    background-color: transparent;
+}
+
+table button :hover{
+    cursor: pointer;
+    color: var(--primary-color);
+} 
+
+
+/* ---------- MODAL ----------- */
+
+.modal__wrapper{
+    width: 100%;
+    height: 100%;
+    margin:0  auto;   
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    overflow: auto;   
+    background-color: rgb(0, 0, 0, 0.4); 
+}
+
+.modal{
+    display: block;
+    min-width: 35%;
+    padding: 1.5rem;
+    margin: auto auto;
+    border-radius: 2rem;
+    box-shadow: 0 0 10px rgb(0 0 0 / 15%);
+    background: linear-gradient(0deg, var(--secondary-text-color) 85%, var(--primary-color) 85%);    
+    transform: translateY(-150%);
+    transition: all 1.5s ease;
+}
+
+.modal.showModal{
+    transform: translateY(0%);
+}
+
+.modal__body{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.modal__header{
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: var(--secondary-text-color);
+}
+.modal__header h2{
+    text-align:center;
+    width:90%;
+    padding-left:30px;
+}
+
+.closeBtn{
+    margin: 0;
+    padding: .8rem;
+    position: relative;
+    border: none;
+    outline: none;
+    border-radius: .3rem;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    background-color: var(--secondary-color);
+    box-shadow: 0 0 10px rgb(0 0 0 / 15%);
+}
+
+.closeBtn:hover{
+    cursor: pointer;
+    background-color: var(--secondary-hover-color);
+}
+
+.closeBtn::before{
+    content: 'x';
+    position: absolute;
+    top: -3px;
+    left: 0;
+    right: 0;
+    color: var(--secondary-text-color);
+}
+
+.modal__form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 2rem;    
+}
+
+.form__row {
+    width: 100%;
+    padding: 1rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: justify;
+}
+
+.form__row:first-child {
+
+   border-radius: 2rem 2rem 0 0;
+}
+.form__row:last-child {
+    border-radius: 0 0 2rem 2rem;
+}
+
+    .form__row:nth-child(odd) {
+        background-color: var(--secondary-background-color);
+    }
+
+input[type='text'],
+input[type='datetime-local'],
+input[type='number'],
+input[type='password'],
+input[type='email'],
+input[type='date'],
+input[type='tel'],
+select {
+    background-color: var(--secondary-text-color);
+    width: 10.7rem;
+    padding: 0.3rem;
+    border: 1px solid var(--text-color);
+    border-radius: 0.25rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.addInput{
+    width: 40%;
+    padding: 1rem;
+    margin: 0 auto;
+    border: none;
+    outline: none;
+    border-radius: 2rem;
+    color: var(--secondary-text-color);
+    background-color: var(--primary-color);
+    box-shadow: 0 0 10px rgb(0 0 0 / 15%);
+}
+
+.addInput:hover{
+    background-color: var(--secondary-color);
+}
+
+
+@keyframes activeAnimation {
+    100%{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 960px){
+
+    .btnAdd{
+        align-self: center;
+    }
+    
+    table thead{
+        display: none;
+    }
+
+    th,
+    td{
+        padding: 1rem;
+        text-align: center;
+    }
+
+    td:not(:last-child){
+        border-bottom: 1px solid #ddd;
+    }   
+
+    table{
+        box-shadow: none;
+ 
+    }
+
+    table,
+    table tbody,
+    table tr,
+    table td{
+        display: block;
+        width: 100%;
+    }
+
+    table tr{
+        margin-bottom: 15px;
+        border-radius: 1rem;
+        box-shadow: 0 0 5px rgb(0 0 0 / 15%);
+        background-color: var(--secondary-text-color);
+    }
+       
+    table td{
+        position: relative;
+        text-align: right;
+    }
+
+    table td:nth-child(even){
+        background-color: var(--background-color);
+    }
+
+    table td::before{
+        width: 50%;
+        padding-left: 15px;
+        position: absolute;
+        left: 0;
+        content: attr(data-label);
+        text-align: left;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .modal{
+        min-width: 60%;
+        background-color: white;    
+    }
+
+    .table__row{
+        background-color: var(--secondary-text-color);
+    }
+}
+@media screen and (min-width:960px) {
+    .form__row label {
+        display: block;
+        width: 25%;
+    }
+    .text-danger {
+        display: block;
+        width: 25%;
+        text-align:center;
+    }
+    .error-controller {
+        display: block;
+        width: 100% !important;
+        margin-top: 10px;
+        margin-bottom: 25px;
+    }
+    .table__row {
+        background-color: var(--secondary-background-color);
+    }
+}
+
+@media screen and (max-width: 768px){
+   
+    .modal{
+        min-width: 85%;
+        
+    }
+}
+
+@media screen and (max-width: 480px){
+    .form__row{
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.3rem;
+    }
+
+    input[type='text'], input[type='datetime-local'], input[type='password'], input[type='email'], input[type='number'], input[type='date'],input[type='tel'] {
+        margin: 0 auto;
+    }
+
+    .modal{
+        min-width: 85%;
+        font-size: 0.9rem;
+        background: linear-gradient(0deg, rgba(255,255,255,1) 88%, rgba(55,105,164,1) 88%);
+   
+    }
+}
+
+@media screen and (max-width: 390px){
+ 
+
+    .registrations td{
+        font-size: .8rem;
+    }
+
+    .closeBtn{
+        margin-left: 1rem;
+    }
+
+}
+ 
+    
+

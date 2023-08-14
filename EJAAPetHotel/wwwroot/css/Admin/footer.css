@@ -1,0 +1,38 @@
+footer{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+    padding: 1rem 0 ;
+    background-color: var(--text-color);
+    color: var(--secondary-text-color);
+    width: 100%;
+}
+
+footer .logo{
+    width: 100px;
+    margin-right: 4rem;
+}
+
+@media screen and (max-width: 960px){
+
+    footer .logo{
+        margin-left: 4.5rem;
+    }
+}
+
+@media screen and (max-width: 480px){
+
+    footer .logo{
+        margin-left: 4.5rem;
+    }
+}
+
+@media screen and (max-width: 320px){
+    footer{
+        text-align: center;
+    }
+}
+

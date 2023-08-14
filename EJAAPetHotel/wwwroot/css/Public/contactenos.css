@@ -1,0 +1,84 @@
+#contact {
+    background-image: url("../../img/Public/huella2.jpg");
+    position: relative; /* Asegurarse de que el contenedor tenga posición relativa */
+    color: #FFF;
+
+}
+
+#contact .contact-map{
+    width: 100%;
+    height: 300px;
+}
+
+#contact .contact-map iframe{
+    width: 100%;
+    height: 100%;
+}
+
+#contact .contact-info{
+    font-size: 1.4em;
+    padding: 10% 8%;
+}
+
+#contact .contact-info h1{
+    padding: 0 5%;
+    text-align: center;
+}
+
+#contact .contact-info-container{
+    width: 100%;
+    margin-top: 50px;
+    font-size: .9em !important;
+}
+
+#contact .contact-info-container img{
+    width: 25px;
+}
+
+#contact .contact-image{
+    width: 100%;
+    height: auto;
+    margin-top: 40px;
+}
+#contact .contact-image img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 14px;
+    -webkit-border-radius: 14px;
+    -moz-border-radius: 14px;
+    -ms-border-radius: 14px;
+    -o-border-radius: 14px;
+}
+
+@media (min-width:1024px) {
+    #contact .contact-map{
+        height: 500px;
+    }
+    #contact .contact-info{
+        font-size: 1.3em;
+        padding: 5%;
+    }
+    #contact .contact-info-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 30px;
+        padding: 3% 0;
+    }
+    #contact .contact-info-container div:first-child{
+        width: 45%;
+    }
+    #contact .contact-image{
+        width: 45%;
+        padding: 0 3%;
+    }
+    #contact .contact-info-container img{
+        width: 50px;
+    }
+    #contact .contact-image img{
+        width: 100%;
+        max-height: 600px;
+    }
+}

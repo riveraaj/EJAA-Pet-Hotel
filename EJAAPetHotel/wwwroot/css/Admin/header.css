@@ -1,0 +1,123 @@
+.header__wrapper{
+    width: 100%;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:transparent;
+}
+
+.logo img{
+    width: 9.375rem;
+}
+
+nav{
+    width: 60%;
+    max-width: 60%;
+    padding: 1rem;
+    background-color: #000;
+    line-height: 3rem;
+    border: 2px solid #e5e8ec;
+    border-radius: 2rem;
+    box-shadow: 0 0 3px rgb(0 0 0 / 10%);
+}
+
+.menu{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.menu__item{
+    text-decoration: none;
+    position: relative;
+}
+
+.menu__item.is-active span::before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0.19rem;
+    top: 70%;
+    background-color: var(--primary-color);
+    animation: activeAnimation 0.2s ease forwards;
+}
+
+.menu__item.is-active span::after,
+.mobile__menu__item.is-active span::after{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0.19rem;
+    top: 70%;
+    left: 0;
+    background-color: var(--secondary-color);
+   
+    animation: activeAnimation 0.5s ease forwards;
+}
+
+
+.hamburgerBtn{
+    border: none;
+    font-size: 2rem;   
+    color: var(--secondary-color);
+    background-color: transparent;
+    position: absolute;
+    right: 3%;
+    display: none;
+    visibility: hidden;
+}
+
+.closeMenuBtn{
+    border: none;
+    font-size: 1.9rem;   
+    color: var(--secondary-color);
+    background-color: transparent;
+    position: absolute;
+    right: 5%;
+    top: 3%;
+}
+
+.btnCerrarSesion{
+    color: var(--text-color);
+    font-weight:900;
+}
+
+
+@keyframes activeAnimation {
+    100%{
+        width: 100%;
+    }
+}
+
+
+@media screen and (max-width: 960px){
+
+    .header__wrapper{
+        padding: 0 5%;
+        border-bottom: 1px solid #e5e8ec;
+        background-color: var(--text-color);
+    }
+
+    nav{
+        border: none;
+        box-shadow: none;
+        display: none;
+        visibility: hidden;
+    }
+
+    .logo img{
+        width: 75px;
+        content: url(/img/Admin/Logo-Mobile.png);
+    }
+
+    .btnCerrarSesion{
+        display: none;
+    }
+
+    .hamburgerBtn{
+        display: block;
+        visibility: visible;
+    }
+
+}

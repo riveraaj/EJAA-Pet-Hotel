@@ -1,0 +1,84 @@
+#session {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10%;
+}
+
+#session .session-container {
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.589);
+    border-radius: 8px;
+    padding: 7%;
+}
+
+#session .session-container .img-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#session .session-container .img-container img {
+    width: 80%;
+    max-width: 300px;
+}
+
+#session .session-container h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#session input[type='submit'] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid black;
+    background-color: rgb(0, 183, 255);
+    border-radius: 1rem;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+#session .link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#session .link a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#session .link a:hover {
+    text-decoration: underline;
+}
+
+#session .form-label{
+    margin-top: 20px;
+}
+
+@media (min-width:1024px) {
+    #session {
+        padding: 5%;
+    }
+
+    #session .session-container {
+        max-width: 550px;
+        padding: 2%;
+    }
+
+    #session input[type='submit'] {
+        margin: 30px 0;
+    }
+
+    #session .session-container .img-container img {
+        max-width: 250px;
+    }
+    #session .form-label{
+        margin-top: 10px;
+    }
+}

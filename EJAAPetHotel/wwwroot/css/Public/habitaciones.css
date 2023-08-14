@@ -1,0 +1,141 @@
+.parallax2-bg{
+    background-image: url(../../img/Public/parallax2-bg.png);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#room{
+   padding-top: 40px;
+}
+
+#room .black-section{
+    background-color: #edb40aba;
+    padding: 4% 0;
+    text-align: center;
+    margin-bottom: 40px;
+}
+#room .black-section h1{
+    margin: 0;
+}
+
+#room .text-container{
+    padding: 0 7%;
+    text-align: center;
+}
+#room .text-container:last-child{
+    margin-bottom: 60px
+}
+
+#petcare2{
+    text-align: center;
+}
+#petcare2 h2{
+    font-size: 1.4em !important;
+    margin-bottom: 50px;
+}
+#petcare2 .gallery{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 0 10%;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+#petcare2 .gallery .card .card-body{
+   background-color: rgba(0, 0, 0, .9) !important;
+   color: #FFF;
+}
+
+#petcare2 .gallery .card:last-child{
+    margin-bottom: 40px !important;
+}
+
+.sectioncheck{
+    padding: 0 10% !important;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.sectioncheck .text-container{
+    padding: 10%;
+    border-radius: 40px;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    -ms-border-radius: 40px;
+    -o-border-radius: 40px;
+    border: solid rgb(0, 0, 0);
+}
+
+.sectioncheck .text-container h2{
+    text-align: center;
+    font-size: 1.4em !important;
+    margin-bottom: 20px !important;
+}
+
+.sectioncheck .text-container:last-child{
+    margin-bottom: 60px;
+}
+
+@media (min-width:768px) and (max-width:1023px){
+    #petcare2 .gallery{
+        flex-direction: row;
+        gap: 10px; 
+    }
+    #petcare2 .gallery .card{
+        width: 300px;
+    }
+    #petcare2 .gallery .card img{
+       height: 300px;
+       object-fit: cover;
+    }
+}
+
+@media (min-width:1024px){
+    #room .black-section{
+        padding: 2% 0;
+        margin-bottom: 90px;
+    }
+    #petcare2 .gallery{
+        flex-direction: row;
+        gap: 40px; 
+        margin-bottom: 100px;
+    }
+    #petcare2 .gallery .card{
+        width: 400px;
+    }
+    #petcare2 .gallery .card img{
+       height: 500px;
+       object-fit: cover;
+    }
+    #petcare2 .gallery .card:last-child{
+        margin-bottom: 0 !important;
+    }
+    .sectioncheck{
+        padding: 0 0% !important;
+        flex-direction: row;
+        gap: 5%;
+        margin-bottom: 60px;
+    }
+    .sectioncheck .text-container{
+        width: 25%;
+        padding: 2%;
+        height: 600px;
+        border-radius: 40px;
+        -webkit-border-radius: 40px;
+        -moz-border-radius: 40px;
+        -ms-border-radius: 40px;
+        -o-border-radius: 40px;
+        border: solid rgb(0, 0, 0);
+    }
+    
+    .sectioncheck .text-container:last-child{
+        margin-bottom: 0px !important;
+    }
+}

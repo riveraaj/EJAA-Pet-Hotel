@@ -1,0 +1,49 @@
+.mobile__menu{
+    width: 60%;
+    background-color: #000000;
+    display: block;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    bottom: 0;
+    z-index: 100;
+    box-shadow: 0 0 10px rgb(0 0 0 / 40%);
+    transition: right 1s;
+}
+
+.mobile__menu.open{
+    right: 0;
+}
+
+.mobile__menu > .menu{
+    width: 90%;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+.mobile__menu__item span{
+    width: 100%;
+    text-align: center;
+    padding-bottom: 1rem;
+    position: relative;
+}
+
+@media screen and (max-width: 960px){
+    .mobile__menu{
+        width: 55%;
+        font-size: 2rem;   
+    }   
+}
+
+@media screen and (max-width: 480px){
+    .mobile__menu{
+        width: 60%;
+        font-size: medium;   
+    }
+    
+}
+
+

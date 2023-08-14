@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&display=swap');
+
+
+:root {
+    --background-color: #b8c4d4;
+    --secondary-background-color: #EBEEF3;
+    --primary-color: #3769A4;
+    --secondary-color: #E8CD3E;
+    --text-color: #000000;
+    --secondary-text-color: #FFFFFF;
+    --primary-hover-color: #4177b5;
+    --secondary-hover-color: #e4ce5b;
+
+    --fuente-principal: 'Instrument Sans', sans-serif;
+    --fuente-titulos: 'Unbounded', cursive;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+*,
+::before,
+::after{
+    box-sizing: border-box;
+}
+th {
+    font-family: var(--fuente-titulos);
+    font-weight:400;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: var( --fuente-principal);
+    background-color: var(--background-color);
+    background-image: url(/img/Admin/bg-parallax.png);
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+main {
+    flex-grow: 1;
+    min-height: 100vh;
+}
+
+a{
+    text-decoration: none;
+    color: var(--secondary-text-color);
+}
+
+h1 {
+    font-weight:400;
+    font-family: var(--fuente-titulos);
+}
+
+.registrations a{
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+a:hover{
+    color: var(--secondary-hover-color);
+}
+
+p{
+    color: var(--text-color);
+}
+
+.myContainer{
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.hidden{
+    display: none;
+    visibility: hidden;
+}
+
+.text-danger{
+    color: rgb(255, 0, 0)
+}
+
+@media screen and (min-width:960px){
+    .registrations a {
+        color: var(--secondary-color);
+    }
+}

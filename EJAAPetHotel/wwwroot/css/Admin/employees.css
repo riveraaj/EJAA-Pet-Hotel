@@ -1,0 +1,32 @@
+.modal{
+    margin: 1rem auto;
+    background: linear-gradient(0deg, var(--secondary-text-color) 90%, var(--primary-color) 90%);    
+}
+
+.modal__wrapper::-webkit-scrollbar {
+    display: none; 
+}
+
+
+input[type='text'],
+input[type='datetime-local'],
+input[type='number'],
+select{
+    width: 10.7rem;
+    padding: 0.3rem;
+    border: 1px solid var(--text-color);
+    border-radius: 0.25rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+@media screen and (max-width: 480px){
+    .modal{
+        background: linear-gradient(0deg, rgba(255,255,255,1) 92%, rgba(55,105,164,1) 92%);
+    }
+}

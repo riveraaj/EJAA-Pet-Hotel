@@ -1,0 +1,78 @@
+.form__wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  img{
+    width: 150px;
+  }
+
+  label{
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  input[type='password'], input[type='text']{
+    width: 10.7rem;
+    padding: 0.5rem;
+    border: 1px solid var(--text-color);
+    border-radius: 0.25rem;
+  }
+
+  input[type='submit']{
+    width: 10.7rem;
+    padding: 0.5rem;
+    border: 1px solid var(--text-color);
+    background-color: var(--primary-color);
+    border-radius: 1rem;
+    color: var(--secondary-text-color);
+    margin-top:20px;
+  }
+
+.text-danger{
+    display:inline !important;
+}
+.form {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    padding: 20px;
+    width: 35%;
+    background-color: #fff;
+    gap: 1.5rem;
+}
+
+.form form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+
+.form form input{
+    margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 960px){
+    .form{
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .form{
+        width: 55%;
+    }
+}
+
+
+@media screen and (max-width: 480px){
+    .form{
+        width: 75%;
+    }
+}

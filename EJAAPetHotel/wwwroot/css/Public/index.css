@@ -1,0 +1,386 @@
+.alert{
+    position:absolute;
+    margin:auto;
+    width:fit-content;
+    left:0;
+    right:0;
+    top: 100px;
+    font-size: .8em !important;
+    border-radius:14px;
+}
+
+
+.parallax-bg {
+    background-image: url(../../img/Public/parallax-bg.png);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.main1{
+    width: 100%;
+    height: auto;
+}
+.main1 img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.main1-card{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.text-center{
+    width: 80%;
+    padding: 5%;
+    margin-top: 20px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+.text-center h1{
+    margin: 20px 0;
+}
+#about{
+    margin: 50px 0;
+}
+.about-container{
+    display: flex;
+    width: 100%;
+    padding: 5%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+.about-container h2{
+    margin-bottom: 20px;
+}
+.about-container p{
+    margin-bottom: 20px;
+}
+.about-img{
+    width: 100%;
+    height: auto;
+}
+.about-img img{
+    width: 100%;
+    border-radius: 14%;
+    -webkit-border-radius: 14%;
+    -moz-border-radius: 14%;
+    -ms-border-radius: 14%;
+    -o-border-radius: 14%;
+}
+#petcare{
+    padding-bottom: 50px;
+}
+#petcare h2{
+    padding: 0 2%;
+    text-align: center;
+}
+.pet-care-container{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+.pet-care{
+    position: relative;
+    width: 200px;
+    height: auto;
+}
+.pet-care-img-container{
+    width: 100%;
+    height: 200px;
+}
+.pet-care-hover-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    z-index: 10;
+    color: #FFFFFF;
+    padding: 0 10%;
+    opacity: 0;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.pet-care-hover-container p{
+    margin: 0 !important;
+}
+.pet-care-hover-container p:hover{
+    cursor: default;
+}
+.pet-care-img-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.pet-care-hover-container:hover{
+    opacity: 1;
+    background-color: rgba(0,0,0, .70);
+}
+#plan{
+    padding-top: 80px;
+    background-color: var(--Amarillo);
+}
+#plan h2{
+    text-align: center;
+    margin-bottom: 30px;
+}
+.plan-container{
+    width: 100%;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+}
+.item-plan{
+    background-color: var(--Negro);
+    color: var(--Blanco);
+    padding: 10%;
+    margin-bottom: 50px;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+}
+.item-plan h3{
+    color: var(--Amarillo);
+    text-align: center;
+}
+.item-plan h4{
+    text-align: center;
+    color: var(--Amarillo);
+}
+.item-plan ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height: 270px;
+    margin: 40px 0;
+}
+.item-plan li{
+    display: flex;
+    margin-bottom: 10px;
+    height: fit-content;
+}
+.item-plan li i{
+    margin-right: 10px;
+}
+.item-plan button{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    color: var(--Blanco);
+    background-color: var(--Azul);
+    padding: 10px 80px;
+    border-radius: 20px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    margin-top: 50px;   
+}
+.item-plan button:hover{
+    background-color: var(--Blanco);
+    color: var(--Amarillo);
+    font-weight: bold;
+}
+
+.modal{
+    margin-top: 20px;
+    z-index: 100000 !important;
+}
+.modal-header{
+   padding: 15px 5% !important;
+   border: none !important;
+}
+.modal hr{
+    width: 90%;
+    margin: auto;
+}
+.modal-body{
+    padding: 15px 0 !important;
+    margin-bottom: 30px;
+}
+.modal-body form{
+    margin: 0 15%;
+    margin-top: 10px;
+    padding: 15px 5%;
+    border: 1px solid #a4a4a4;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    font-size: .9em !important;
+}
+
+.modal-body form span{
+    font-size: .8em;
+    margin: 3% 0;
+}
+.modal-body form input[type="submit"]{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.modal-body p{
+    margin: 0 8%;
+    margin-top: 20px;
+    font-size: .7em !important;
+}
+.modal-body span{
+    display: block;
+    margin: 5% 8%;
+    font-size: .7em;
+}
+@media screen and (min-width:768px) and (max-width:1023px){
+    .text-center{
+        width: 80%;
+        padding: 5% 10%;
+        margin-top: 10%;
+    }
+    #about{
+        margin: 50px 0;
+    }
+    .about-container{
+        padding: 8% 15%;
+    }
+    #petcare{
+        margin-top: 50px;
+        padding-bottom: 70px;
+    }
+    #petcare h2{
+        padding: 0 6%;
+    }
+    .pet-care-container{
+        margin-top: 70px;
+        gap: 50px;
+    }
+    .plan-container{
+        justify-content: center;
+        align-items: center;    
+    }
+    .item-plan{
+        width: 80%;
+        padding: 5%;
+    }
+    .item-plan button{
+        padding: 10px 100px;
+    }
+}
+@media screen and (min-width:1024px){
+    .main1{
+        height: 90vh;
+    }
+    .main1 img{
+        object-fit: cover;
+    }
+    .text-center{
+        margin-top: 4%;
+        width: 55%;
+        padding: 3%;
+    }
+    .text-center h1{
+        margin-bottom: 40px;
+        font-size: 1.6em !important;
+    }
+    .text-center p{
+        font-size: 1em !important;
+    }
+    #about{
+        margin: 0;
+        margin-top: 100px;
+    }
+    #about-general-container{
+        width: 100%;
+        padding: 0 0;
+    }
+    .about-container{        
+        justify-content: space-between;
+        flex-direction: row;
+        padding: 0% 5%;
+    }
+    .about-text{
+        padding: 0 3%;
+        width: 49%;
+    }
+    .about-text h2{
+        font-size: 1.6em !important;
+    }
+    .about-img{
+        width: 49%;
+        padding: 5%;
+    }
+    .about-container:first-child{
+        flex-direction: row-reverse;
+    }
+    #petcare{
+        margin-top: 80px;
+        padding-bottom: 90px;
+    }
+    .pet-care-container{
+        margin-top: 80px;
+        gap: 5%;
+        padding: 0 5%;
+    }
+    #plan{
+        padding: 120px 0;
+    }
+    .plan-container{
+        padding: 3%;
+        flex-direction: row;
+        align-items: normal;
+        gap: 3%;
+        height: auto;
+        justify-content:center;
+    }
+    .item-plan{
+        width: 32.33% !important;
+        padding: 3.5%;
+        height: auto;
+        margin-bottom: 0;
+    }
+    .item-plan h3{
+        font-size: 1.7em !important;
+        margin: 30px 0;
+    }
+    .item-plan ul{
+        height: auto;    
+    }
+    .item-plan li{
+        height: auto;
+        margin-bottom: 20px;
+    }
+    .item-plan li p{
+        margin: 0;
+    }
+    .item-plan button{
+        top: 3%;
+    }  
+}
