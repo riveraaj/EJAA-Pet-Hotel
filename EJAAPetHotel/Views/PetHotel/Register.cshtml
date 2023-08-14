@@ -1,0 +1,93 @@
+﻿<!--
+ * Copyright [2023] [Jonathan Rivera Vasquez]
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ -->
+
+@model PetHotel.Areas.Accounts.Models.User;
+
+@{
+    ViewData["Title"] = "Registro";
+}
+
+<div id="session">
+    <div class="session-container">
+        <div class="img-container">
+            <img src="~/img/Public/icon.png" alt="Logo de la empresa">
+        </div>
+        <h1>Crear Cuenta</h1>
+        <div class="container-form">
+            <form asp-area="Accounts" asp-controller="Public" asp-action="Register" class="row g-3" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="col-md-6">
+                    <label asp-for="Person.PersonId" class="form-label">Cédula</label>
+                    <input asp-for="Person.PersonId" type="number" class="form-control" placeholder="113456789">
+                    <span asp-validation-for="Person.PersonId" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="Person.PersonName" class="form-label">Nombre</label>
+                    <input asp-for="Person.PersonName" type="text" class="form-control"
+                           placeholder="Jorge" />
+                    <span asp-validation-for="Person.PersonName" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="Person.PersonLastname" class="form-label">Primer Apellido</label>
+                    <input asp-for="Person.PersonLastname" type="text" class="form-control"
+                           placeholder="Matamoros" />
+                    <span asp-validation-for="Person.PersonLastname" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="Person.PersonSecondname" class="form-label">Segundo Apellido</label>
+                    <input asp-for="Person.PersonSecondname" type="text" class="form-control"
+                           placeholder="Sibaja" />
+                    <span asp-validation-for="Person.PersonSecondname" class="text-danger"></span>
+                </div>
+                <div class="col-12">
+                    <label asp-for="Person.Email" class="form-label">Correo</label>
+                    <input asp-for="Person.Email" type="email" class="form-control"
+                           placeholder="email@example.com" />
+                    <span asp-validation-for="Person.Email" class="text-danger"></span>
+                </div>
+                <div class="col-12">
+                    <label asp-for="Person.Phone" class="form-label">Celular</label>
+                    <input asp-for="Person.Phone" type="tel" class="form-control" placeholder="84432412" />
+                    <span asp-validation-for="Person.Phone" class="text-danger"></span>
+                </div>
+                <div class="col-12">
+                    <label asp-for="Password" class="form-label">Contraseña</label>
+                    <input asp-for="Password" type="password" class="form-control" placeholder=".........." />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="col-12">
+                    <label for="PasswordConfirm" class="form-label">Confirmar contraseña</label>
+                    <input name="PasswordConfirm" type="password" class="form-control"
+                           placeholder=".........." />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="col-12">
+                    <span class="text-danger">@ViewData["RegisterError"]</span>
+                </div>
+                <div class="col-12">
+                    <input type="submit" class="btn btn-primary" value="Registrarse">
+                </div>
+            </form>
+        </div>
+        <p class="link">¿Ya tienes cuenta? <a asp-controller="PetHotel" asp-action="Login">Inicia sesión aquí.</a></p>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,68 @@
+﻿<!--
+ * Copyright [2023] [Jonathan Rivera Vasquez]
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ -->
+
+@model PetHotel.Areas.Accounts.Models.User;
+
+@{
+    ViewData["Title"] = "Inicio de sesión";
+}
+
+<div id="session">
+    <div class="session-container">
+        <div class="img-container">
+            <img src="~/img/Public/icon.png" alt="Logo de la empresa">
+        </div>
+        <h1>Iniciar Sesión</h1>
+        <div class="container-form">
+            <form asp-area="Accounts" asp-controller="Public" asp-action="Login" class="col g-3" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="col-12">
+                    <label asp-for="PersonId" class="form-label">Usuario</label>
+                    <input asp-for="PersonId" type="number" class="form-control" placeholder="118800124">
+                    <span asp-validation-for="PersonId" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label asp-for="Password" class="form-label">Contraseña</label>
+                    <input asp-for="Password" type="password" class="form-control" placeholder="Password">
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <span class="text-danger">@ViewData["LoginError"]</span>
+                    <br />
+                </div>
+
+                <div class="col-12">
+                    <input type="submit" class="btn btn-primary" value="Ingresar">
+                </div>
+
+            </form>
+        </div>
+        <p class="link">
+            ¿Aún no estas registrado? <a asp-controller="PetHotel" asp-action="Register">
+                Registrate
+                aquí.
+            </a>
+        </p>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

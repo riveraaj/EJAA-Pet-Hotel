@@ -1,0 +1,141 @@
+﻿<!--
+ * Copyright [2023] [Jonathan Rivera Vasquez]
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ -->
+
+<!DOCTYPE html>
+<html lang="es-MX">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PetHotel</title>
+    <link rel="icon" href="~/favicon.png">
+    <link rel="stylesheet" href="~/css/Admin/global.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Admin/header.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Admin/footer.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Admin/mobile__menu.css" asp-append-version="true" />
+    @if (ViewData["Title"].Equals("Inicio"))
+    {
+        <link rel="stylesheet" href="~/css/Admin/index.css" asp-append-version="true" />
+    }
+    @if (ViewData["Title"].Equals("Reservaciones"))
+    {
+        <link rel="stylesheet" href="~/css/Admin/registrations.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/Admin/main.css" asp-append-version="true" />
+    }
+    @if (ViewData["Title"].Equals("Empleados"))
+    {
+        <link rel="stylesheet" href="~/css//Admin/employees.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/Admin/main.css" asp-append-version="true" />
+    }
+    @if (ViewData["Title"].Equals("Detalles"))
+    {
+        <link rel="stylesheet" href="~/css//Admin/detail.css" asp-append-version="true" />
+    }
+    @if (ViewData["Title"].Equals("Mantenimiento"))
+    {
+        <link rel="stylesheet" href="~/css/Admin/main.css" asp-append-version="true" />
+    }
+    @if (ViewData["Title"].Equals("Habitaciones"))
+    {
+        <link rel="stylesheet" href="~/css/Admin/main.css" asp-append-version="true" />
+    }
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="myContainer">
+            <div class="header__wrapper">
+                <a asp-area="Reservations" asp-controller="Reservation" asp-action="Home" class="logo">
+                    <img src="~/img/Admin/Logo.png" alt="Logo">
+                </a>
+                <nav>
+                    <ul class="menu">
+                        <li class="menu__item"><span><a asp-area="Reservations" asp-controller="Reservation" asp-action="Home">Inicio</a></span></li>
+
+                        @if (User.IsInRole("1") || User.IsInRole("2")){
+                            <li class="menu__item"><span><a asp-area="Reservations" asp-controller="Reservation" asp-action="Index">Reservaciones</a></span></li>
+                        }
+
+                        @if (User.IsInRole("1") || User.IsInRole("3")){
+                            <li class="menu__item"><span><a asp-area="Maintenances" asp-controller="Maintenance" asp-action="Index">Mantenimientos</a></span></li>
+                        }
+                        @if (User.IsInRole("1") || User.IsInRole("2") || User.IsInRole("3")){
+                            <li class="menu__item"><span><a asp-area="Rooms" asp-controller="Room" asp-action="Index">Habitaciones</a></span></li>
+                        }
+                        @if (User.IsInRole("1")){
+                            <li class="menu__item"><span><a asp-area="Employees" asp-controller="Employee" asp-action="Index">Empleados</a></span></li>
+                        }
+
+                    </ul>
+                </nav>
+
+
+                @if (User.IsInRole("1") || User.IsInRole("2") || User.IsInRole("3")){
+                    <a asp-area="Accounts" asp-controller="Admin" asp-action="Close" class="btnCerrarSesion">Cerrar Sesión</a>
+                }    
+
+                <button class="hamburgerBtn"><i class="fa-solid fa-bars"></i></button>
+
+                <div class="mobile__menu">
+                    <ul class="menu">
+                        <li class="mobile__menu__item i"><span><a asp-area="Reservations" asp-controller="Reservation" asp-action="Home">Inicio</a></span></li>
+
+                        @if (User.IsInRole("1") || User.IsInRole("2")){
+                            <li class="mobile__menu__item"><span><a asp-area="Reservations" asp-controller="Reservation" asp-action="Index">Reservaciones</a></span></li>                            
+                        }
+
+                        @if (User.IsInRole("1") || User.IsInRole("3")){
+                            <li class="mobile__menu__item"><span><a asp-area="Maintenances" asp-controller="Maintenance" asp-action="Index">Mantenimientos</a></span></li>
+                        }
+
+                        @if (User.IsInRole("1") || User.IsInRole("2") || User.IsInRole("3")){
+                           <li class="mobile__menu__item"><span><a asp-area="Rooms" asp-controller="Room" asp-action="Index">Habitaciones</a></span></li> 
+                        }
+                        @if (User.IsInRole("1")){
+                            <li class="mobile__menu__item"><span><a asp-area="Employees" asp-controller="Employee" asp-action="Index">Empleados</a></span></li>
+                        }
+
+                        @if (User.IsInRole("1") || User.IsInRole("2") || User.IsInRole("3")){
+                            <li><a asp-area="Accounts" asp-controller="Admin" asp-action="Close">Cerrar Sesión</a></li>
+                        }
+
+                        <button class="closeMenuBtn"><i class="fa-solid fa-x"></i></button>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+       @RenderBody()
+    </main>
+
+    <footer>
+        <a class="logo" asp-area="Reservations" asp-controller="Reservation" asp-action="Home">
+            <img src="~/img/Admin/Logo-Mobile.png" alt="Logo__Footer">
+        </a>
+        <small>Copyright 2023 ©. Cuidado Los Patitos SA. All right reserved.</small>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/Admin/script.js" asp-append-version="true"></script>
+    <script src="https://kit.fontawesome.com/a20bcdec67.js" crossorigin="anonymous"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,470 @@
+﻿<!--
+ * Copyright [2023] [Estefania Espinoza]
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * This source code file was created by [Estefania Espinoza] and contains original code
+ * created by me and my colleagues
+ *
+ * Contributions by:
+ * - [Jonathan Rivera Vasquez]: [Connection to Back-End (links, forms, data, logic), Error manage, Refactoring of the structure]
+ -->
+
+@model PetHotel.Areas.Reservations.Models.Reservation
+
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="parallax-bg">
+
+    @if (TempData["CreateReservation"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Reservacion creada!</strong> La confirmación de la reservación está en revisión y confirmación.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> 
+        </div>
+    }
+    else if (TempData["CreateError"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Error!</strong> No se pudo realizar la reserva. Inténtelo de nuevo más tarde.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <section id="hero">
+        <div class="main1">
+            <img src="~/img/Public/PerroAmarillo9.jpg" alt="Imagen amarilla de encabezado">
+        </div>
+        <div class="main1-card">
+            <div class="text-center bg-negro">
+                <h1>¡ Bienvenido al futuro !</h1>
+                <p>
+                    Descubre nuestro hotel y veterinaria para mascotas, moderno y minimalista, diseñado con amor para
+                    proporcionar a tus compañeros peludos una experiencia inovidable. Nuestros espacios elgantes y modernos
+                    garantizan al maximo confort y diversion para tus mascotas mientras tu estas fuera.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+
+        <div id="about-general-container">
+
+            <div class="about-container">
+                <div class="about-text">
+                    <h2>Instalaciones de lujo para nuestros pequeños huespedes</h2>
+                    <p>
+                        Nuestras instalaciones cuentan con habitaciones espaciosas,
+                        diseñadas especialmente para el descanso y bienestar de tus mascotas.
+                        Ademas disponemos de areas de juego, amplios jardines para que tus
+                        mascotas se diviertan y puedan disfrutar de la naturaleza.
+                    </p>
+                </div>
+                <div class="about-img">
+                    <img src="~/img/Public/perro0.jpg"
+                    alt="Perrro Husky Siveriano en blanco y negro, con un fondo de arboles en otonno">
+                </div>
+            </div>
+
+
+            <div class="about-container">
+                <div class="about-text">
+                    <h2>Personal capacitado para consentir a tus mascotas</h2>
+                    <p>
+                        Nuestro equipo de profesionales amante de los animales esta
+                        entrenado para cuidar a tus peluditos como si fueran propias, se
+                        realizan actividades con juguetes interactivos en nuestros bellos jardines.
+                    </p>
+                </div>
+                <div class="about-img">
+                    <img src="~/img/Public/Perroychica.jpg" alt="Duenno con su perro">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="petcare">
+        <h2>¡ Cuidamos a tu mascota como si fuera nuestra !</h2>
+
+        <div class="pet-care-container">
+            <div class="pet-care">
+                <div class="pet-care-img-container">
+                    <img src="~/img/Public/perro.jpg" alt="Imagen circular">
+                </div>
+                <div class="pet-care-hover-container">
+                    <p><strong>Cuidados especiales en su etapa de vejez</strong></p>
+                </div>
+            </div>
+
+            <div class="pet-care">
+                <div class="pet-care-img-container">
+                    <img src="~/img/Public/gato.jpg" alt="Imagen circular">
+                </div>
+                <div class="pet-care-hover-container">
+                    <p><strong>Espacios privados para gatos y gatitos</strong></p>
+                </div>
+            </div>
+
+            <div class="pet-care">
+                <div class="pet-care-img-container">
+                    <img src="~/img/Public/conejo.jpg" alt="Imagen circular">
+                </div>
+                <div class="pet-care-hover-container">
+                    <p> <strong>¡Si! Tambien recibimos tu conejo</strong></p>
+                </div>
+            </div>
+
+            <div class="pet-care">
+                <div class="pet-care-img-container">
+                    <img src="~/img/Public/hamnster.jpg" alt="Imagen circular">
+                </div>
+                <div class="pet-care-hover-container">
+                    <p><strong>Deja tu hamnster con nosotros</strong></p>
+                </div>
+            </div>
+
+            <div class="pet-care">
+                <div class="pet-care-img-container">
+                    <img src="~/img/Public/perro1.jpg" alt="Imagen circular">
+                </div>
+                <div class="pet-care-hover-container">
+                    <p><strong>Atencion especial para cachorros</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<section id="plan">
+    <h2>! Conoce Nuestros Planes !</h2>
+    <div class="plan-container">
+
+        <div class="item-plan">
+            <h3>Gold</h3>
+            <ul>
+                <li>
+                    <i>✓</i>
+                    <p>Habitacion individual &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                </li>
+                <li>
+                    <i>✓</i>
+                    <p>
+                        Asistencia básica &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </p>
+                </li>
+                <li>
+                    <i>✓</i>
+                    <p>Disfrute de juegos</p>
+                </li>
+                <li>
+                    <i>✓</i>
+                    <p>
+                        Paseos a sitios con acompañamiento &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </p>
+                </li>
+            </ul>
+            <h4>₡30.000</h4>
+            <button type="button" data-bs-toggle="modal" data-bs-target="#gold">Elegir plan</button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="gold" tabindex="-1" aria-labelledby="goldLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="goldLabel">Plan Gold</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <hr>
+                    <div class="modal-body">
+                        @if (User.IsInRole("4"))
+                        {
+                            @if (ViewBag.Rooms > 0)
+                            {
+                                <form asp-area="Reservations" asp-controller="Reservation" asp-action="Create" class="col g-3">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <input asp-for="PackageTypeId" type="hidden" value="1">
+                                    <div class="form-group">
+                                        <label asp-for="Pet.PetName" class="control-label">Nombre de las Mascota</label>
+                                        <input asp-for="Pet.PetName" class="form-control" />
+                                        <span asp-validation-for="Pet.PetName" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="DateStart" class="control-label">Fecha de Ingreso</label>
+                                        <input asp-for="DateStart" type="date" class="form-control" />
+                                        <span asp-validation-for="DateStart" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="DateEnd" class="control-label">Fecha de Salida</label>
+                                        <input asp-for="DateEnd" type="date" class="form-control" />
+                                        <span asp-validation-for="DateEnd" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group form-check">
+                                        <label class="form-check-label">
+                                            <input asp-for="DateUndefined" type="checkbox" class="form-check-input" /> Tiempo indefinido (De selecionar debe entender que el mínimo son 3 días de estadia)
+                                        </label>
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        <label asp-for="StayTypeId" class="control-label">Estadia</label>
+                                        <select asp-for="StayTypeId" class="form-control" asp-items="ViewBag.StayTypeId"></select>
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        <label asp-for="DescriptionPetCare" class="control-label">Cuidados de la Mascota</label>
+                                        <input asp-for="DescriptionPetCare" class="form-control" />
+                                        <span asp-validation-for="DescriptionPetCare" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <span class="text-danger">@ViewData["CreateError"]</span>
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        <input type="submit" value="Create" class="btn btn-primary" />
+                                    </div>
+                                </form>
+                                <p>
+                                    ¡Gracias por solicitar tu reserva el EJAA Pet Hotel! Nos pondremos en contacto con usted en las
+                                    próximas 24 horas para verificar la disponibilidad de habitaciones y proceder con los tramites de
+                                    ingreso. Si desea más información puede comunicarse con nosotros al 2229-1743
+                                </p>
+                            }
+                            else
+                            {
+                                <p>No hay habitaciones disponibles en estos momentos</p>
+                            }
+                        }
+                        else
+                        {
+                            <span>Para poder realizar una reservación necesita <a asp-controller="PetHotel" asp-action="Login"><b>Iniciar sesión.</b></a></span>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item-plan">
+            <h3>Platino</h3>
+            <ul>
+                <li>
+                    <i>✓</i>
+                    <p>Habitacion de cuidados especiales</p>
+                </li>
+                <li>
+                    <i>✓</i>
+                    <p>Asistencia para movilidad y alimentacion</p>
+                </li>
+                <li>
+                    <i>✓</i>
+                    <p>Disfrute de juegos
+                </li>
+                <li>
+                    <i>✓</i>
+                    <p>Paseos a sitios con acompañamiento con piscina &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                </li>
+            </ul>
+            <h4>₡40.000</h4>
+            <button type="button" data-bs-toggle="modal" data-bs-target="#platinum">Elegir plan</button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="platinum" tabindex="-1" aria-labelledby="platinumLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="platinumLabel">Plan Platino</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <hr>
+                    <div class="modal-body">
+                        @if (User.IsInRole("4"))
+                        {
+                            @if (ViewBag.Rooms > 0)
+                            {
+                                <form asp-area="Reservations" asp-controller="Reservation" asp-action="Create" class="col g-3">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <input asp-for="PackageTypeId" type="hidden" value="2">
+                                    <div class="form-group">
+                                        <label asp-for="Pet.PetName" class="control-label">Nombre de las Mascota</label>
+                                        <input asp-for="Pet.PetName" class="form-control" />
+                                        <span asp-validation-for="Pet.PetName" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="DateStart" class="control-label">Fecha de Ingreso</label>
+                                        <input asp-for="DateStart" type="date" class="form-control" />
+                                        <span asp-validation-for="DateStart" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="DateEnd" class="control-label">Fecha de Salida</label>
+                                        <input asp-for="DateEnd" type="date" class="form-control" />
+                                        <span asp-validation-for="DateEnd" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group form-check">
+                                        <label class="form-check-label">
+                                            <input asp-for="DateUndefined" type="checkbox" class="form-check-input" /> Tiempo indefinido (De selecionar debe entender que el mínimo son 3 días de estadia)
+                                        </label>
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        <label asp-for="StayTypeId" class="control-label">Estadia</label>
+                                        <select asp-for="StayTypeId" class="form-control" asp-items="ViewBag.StayTypeId"></select>
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        <label asp-for="DescriptionPetCare" class="control-label">Cuidados de la Mascota</label>
+                                        <input asp-for="DescriptionPetCare" class="form-control" />
+                                        <span asp-validation-for="DescriptionPetCare" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <span class="text-danger">@ViewData["CreateError"]</span>
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        <input type="submit" value="Create" class="btn btn-primary" />
+                                    </div>
+                                </form>
+                                <p>
+                                    ¡Gracias por solicitar tu reserva el EJAA Pet Hotel! Nos pondremos en contacto con usted en las
+                                    próximas 24 horas para verificar la disponibilidad de habitaciones y proceder con los tramites de
+                                    ingreso. Si desea más información puede comunicarse con nosotros al 2229-1743
+                                </p>
+                            }
+                            else
+                            {
+                                <p>No hay habitaciones disponibles en estos momentos</p>
+                            }
+                        }
+                        else
+                        {
+                            <span>Para poder realizar una reservación necesita <a asp-controller="PetHotel" asp-action="Login"><b>Iniciar sesión.</b></a></span>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item-plan">
+            <h3>Diamante</h3>
+            <ul>
+                <li>
+                    <i>✓</i>
+                    <p>Habitacion individual con camara</p>
+                </li>
+                <li>
+                    <i>✓</i>
+                    <p>
+                        Asistencia completa &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </p>
+                </li>
+                <li>
+                    <i>✓</i>
+                    <p>Disfrute de juegos &nbsp;&nbsp;&nbsp;&nbsp;</p>
+                </li>
+                <li>
+                    <i>✓</i>
+                    <p>Paseos a sitios con acompañamiento con terapia en piscina</p>
+                </li>
+            </ul>
+            <h4>₡50.000</h4>
+            <button type="button" data-bs-toggle="modal" data-bs-target="#diamond">Elegir plan</button>
+        </div>
+
+        <!-- Modal -->
+ 
+        <div class="modal fade" id="diamond" tabindex="-1" aria-labelledby="diamondLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="platinumLabel">Plan Diamante</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <hr>
+                    <div class="modal-body">
+                        @if (User.IsInRole("4"))
+                        {
+                            @if (ViewBag.Rooms > 0)
+                            {
+                                <form asp-area="Reservations" asp-controller="Reservation" asp-action="Create" class="col g-3">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <input asp-for="PackageTypeId" type="hidden" value="3">
+                                    <div class="form-group">
+                                        <label asp-for="Pet.PetName" class="control-label">Nombre de las Mascota</label>
+                                        <input asp-for="Pet.PetName" class="form-control" />
+                                        <span asp-validation-for="Pet.PetName" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="DateStart" class="control-label">Fecha de Ingreso</label>
+                                        <input asp-for="DateStart" type="date" class="form-control" />
+                                        <span asp-validation-for="DateStart" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="DateEnd" class="control-label">Fecha de Salida</label>
+                                        <input asp-for="DateEnd" type="date" class="form-control" />
+                                        <span asp-validation-for="DateEnd" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group form-check">
+                                        <label class="form-check-label">
+                                            <input asp-for="DateUndefined" type="checkbox" class="form-check-input" /> Tiempo indefinido (De selecionar debe entender que el mínimo son 3 días de estadia)
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="StayTypeId" class="control-label">Estadia</label>
+                                        <select asp-for="StayTypeId" class="form-control" asp-items="ViewBag.StayTypeId"></select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="DescriptionPetCare" class="control-label">Cuidados de la Mascota</label>
+                                        <input asp-for="DescriptionPetCare" class="form-control" />
+                                        <span asp-validation-for="DescriptionPetCare" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <span class="text-danger">@ViewData["CreateError"]</span>
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        <input type="submit" value="Create" class="btn btn-primary" />
+                                    </div>
+                                </form>
+                                <p>
+                                    ¡Gracias por solicitar tu reserva el EJAA Pet Hotel! Nos pondremos en contacto con usted en las
+                                    próximas 24 horas para verificar la disponibilidad de habitaciones y proceder con los tramites de
+                                    ingreso. Si desea más información puede comunicarse con nosotros al 2229-1743
+                                </p>
+                            }
+                            else
+                            {
+                                <p>No hay habitaciones disponibles en estos momentos</p>
+                            }
+                        }
+                        else
+                        {
+                            <span>Para poder realizar una reservación necesita <a asp-controller="PetHotel" asp-action="Login"><b>Iniciar sesión.</b></a></span>
+                        }  
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
