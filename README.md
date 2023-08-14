@@ -65,4 +65,3 @@ Copyright [2023] [Jonathan Rivera Vasquez]
 
 - Linkedin - [jriveraa](https://www.linkedin.com/in/jriveraaa/)
 - Website - [Jonathan R.V](https://riveraaj.github.io/Portfolio/)
-- 
