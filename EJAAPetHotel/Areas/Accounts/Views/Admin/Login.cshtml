@@ -1,0 +1,61 @@
+﻿<!--
+ * Copyright [2023] [Ayram Tolentino]
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * This source code file was created by [Ayram Tolentino] and contains original code
+ * created by me and my colleagues
+ *
+ * Contributions by:
+ * - [Jonathan Rivera Vasquez]: [Connection to Back-End (links, forms, data, logic), Error manage]
+ -->
+
+@model PetHotel.Areas.Employees.Models.Employee
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+    
+@{
+    ViewData["Title"] = "Employee";
+    Layout = "~/Views/Shared/_LayoutAdminLogin.cshtml";
+}
+
+<div class="form__wrapper">
+    <div class="form">
+        <img src="~/img/Admin//Logo.png" alt="">
+        <h2>Inicio de Sesión</h2>
+        <form asp-area="Accounts" asp-controller="Admin" asp-action="Login" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <label asp-for="PersonId">Usuario</label>
+            <input asp-for="PersonId" type="number">
+            <span asp-validation-for="PersonId" class="text-danger"></span>
+            <br />
+            <label asp-for="Password">Contraseña</label>
+            <input asp-for="Password" type="password">
+            <span asp-validation-for="Password" class="text-danger"></span>
+            <br />
+            <div>
+                <span class="text-danger">@ViewData["LoginError"]</span>
+                <br />
+            </div>
+            <br />
+            <input type="submit" value="Iniciar Sesión" />
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

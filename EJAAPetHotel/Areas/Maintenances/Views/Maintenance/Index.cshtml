@@ -1,0 +1,154 @@
+﻿<!--
+ * Copyright [2023] [Ayram Tolentino]
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * This source code file was created by [Ayram Tolentino] and contains original code
+ * created by me and my colleagues
+ *
+ * Contributions by:
+ * - [Jonathan Rivera Vasquez]: [Connection to Back-End (links, forms, data, logic), Error manage]
+ -->
+
+@model PetHotel.Areas.Maintenances.Models.Maintenance
+@using PetHotel.Areas.Maintenances.Models;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Mantenimiento";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="myContainer">
+    <div class="table__wrapper">
+        <h1 class="title">Control de Mantenimientos</h1>
+        <button class="btnAdd"> Añadir Mantenimiento <i class="fa-solid fa-plus"></i></button>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Estado del Mantenimiento</th>
+                    <th scope="col">Fecha de finalizacion</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Empleado</th>
+                    <th scope="col">Tipo de Mantenimiento</th>
+                    <th scope="col">Habitacion</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    var maintenance = ViewData["Maintenance"] as List<Maintenance>;
+                }
+                @foreach (var item in maintenance)
+                {
+                    <tr class="table__row">
+                        <td data-label="Estado del Mantenimiento">
+                            <form asp-area="Maintenances" asp-controller="Maintenance" asp-action="Edit" method="post">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <input type="hidden" name="MaintenanceId" value="@item.MaintenanceId" />
+                                <input type="hidden" name="MaintenanceTypeId" value="@item.MaintenanceTypeId" />
+                                <input type="hidden" name="EmployeeId" value="@item.EmployeeId" />
+                                <input type="hidden" name="RoomId" value="@item.RoomId" />
+                                <input type="hidden" name="MaintenanceDescription" value="@item.MaintenanceDescription" />
+                                <input type="hidden" name="DateEnd" value="@item.DateEnd" />
+
+                                <div>
+                                    <label >
+                                        <input class="auto-submit" name="MaintenanceState" asp-for="@item.MaintenanceState" />
+                                        @if (item.MaintenanceState == false)
+                                        {
+                                            <span>Inactivo</span>
+                                        }
+                                        else
+                                        {
+                                            <span>Activo</span>
+                                        }
+                                    </label>
+                                </div>
+
+                            </form>
+                        </td>
+                        <td data-label="Fecha de finalizacion">
+                            <p>@item.DateEnd</p>
+                        </td>
+                        <td data-label="Descripcion">
+                            <p>@item.MaintenanceDescription</p>
+                        </td>
+                        <td data-label="Empleado">
+                            @{
+                                var personFullName = item.Employee.Person.PersonName + " " + item.Employee.Person.PersonLastname;
+                            }
+                            <p>@personFullName</p>
+                        </td>
+                        <td data-label="Tipo de Mantenimiento">
+                            <p>@item.MaintenanceType.MaintenanceTypeDescription</p>
+                        </td>
+                        <td data-label="Habitacion">
+                            <p>@item.RoomId</p>
+                        </td>
+                        <td data-label="Acciones">
+                            <form asp-area="Maintenances" asp-controller="Maintenance" asp-action="Delete">
+                                <input type="hidden" name="MaintenanceId" value="@item.MaintenanceId" />
+                                <button class="deleteDataBtn" type="submit"><i class="fa-solid fa-trash-can"></i></button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="modal__wrapper @(ViewData["CreateError"] != null ? "" : "hidden")">
+        <div class="modal @(ViewData["CreateError"] != null ? "showModal" : "")" id="myModal">
+            <div class="modal__header">
+                <h2>Añadir Mantenimiento</h2>
+                <button class="closeBtn"></button>
+            </div>
+            <div class="modal__body">
+                <form asp-area="Maintenances" asp-controller="Maintenance" asp-action="Create" method="post" class="modal__form" id="form">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form__row">
+                        <label asp-for="MaintenanceTypeId">Tipo Mantenimiento</label>
+                        <select asp-for="MaintenanceTypeId" asp-items="ViewBag.MaintenanceType"></select>
+                    </div>
+                    <div class="form__row">
+                        <label asp-for="EmployeeId">Empleado</label>
+                        <select asp-for="EmployeeId" asp-items="ViewBag.Employee"></select>
+                    </div>
+                    <div class="form__row">
+                        <label asp-for="RoomId">Habitacion</label>
+                        <select asp-for="RoomId" asp-items="ViewBag.Room"></select>
+                    </div>
+                    <div class="form__row">
+                        <label asp-for="DateEnd" >Fecha Realizada</label>
+                        <span asp-validation-for="DateEnd" class="text-danger"></span>
+                        <input asp-for="DateEnd" type="date"  />       
+                    </div>
+                    <div class="form__row mb-md-3">
+                        <label asp-for="MaintenanceDescription" >Descripcion</label>
+                        <span asp-validation-for="MaintenanceDescription" class="text-danger"></span>
+                        <input asp-for="MaintenanceDescription" type="text"  />                
+                    </div>
+                    <span class="text-danger error-controller">@ViewData["CreateError"]</span>
+                    <br />
+                </form>
+                <input class="addInput" form="form" type="submit" value="Añadir">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,61 @@
+﻿<!--
+ * Copyright [2023] [Ayram Tolentino]
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * This source code file was created by [Ayram Tolentino] and contains original code
+ * created by me and my colleagues
+ *
+ * Contributions by:
+ * - [Jonathan Rivera Vasquez]: [Connection to Back-End (links, forms, data, logic), Error manage]
+ -->
+
+@model IEnumerable<PetHotel.Areas.Rooms.Models.Room>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Habitaciones";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="myContainer">
+    <div class="table__wrapper">
+        <h1 class="title">Control de Habitaciones</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Habitacion</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Tipo de Habitación</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="table__row">
+                        <td data-label="Habitación">
+                            <p>@item.RoomId</p>
+                        </td>
+                        <td data-label="Estado">
+                            <p>@item.RoomStatus.RoomStatusDescription</p>
+                        </td>
+                        <td data-label="Tipo de Habitación">
+                            <p>@item.RoomType.RoomTypeDescription</p>
+                        </td>
+                    </tr>
+                }
+               
+            </tbody>
+        </table>
+    </div>
+</div>

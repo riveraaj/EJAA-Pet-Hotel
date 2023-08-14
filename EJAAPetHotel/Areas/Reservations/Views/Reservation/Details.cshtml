@@ -1,0 +1,126 @@
+﻿<!--
+ * Copyright [2023] [Ayram Tolentino]
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * This source code file was created by [Ayram Tolentino] and contains original code
+ * created by me and my colleagues
+ *
+ * Contributions by:
+ * - [Jonathan Rivera Vasquez]: [Connection to Back-End (links, forms, data), Error manage]
+ -->
+
+@model PetHotel.Areas.Reservations.Models.Reservation
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Detalles";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="myContainer">
+
+    <div class="modal" id="myModal">
+        <div class="modal__body">
+            <a id="goBack"  asp-area="Reservations" asp-controller="Reservation" asp-action="Index"><i class="fa-solid fa-rotate-left"></i>Volver</a>
+            <table class="table__modal">
+                <tbody>
+                    <tr class="table__modal__row">
+
+                        <td>Fecha de Ingreso:</td>
+                        <td>@Model.DateStart</td>
+                    </tr>
+
+                    <tr class="table__modal__row">
+
+                        <td>Fecha de Salida:</td>
+                        <td>@Model.DateEnd</td>
+
+                    </tr>
+
+                    <tr class="table__modal__row">
+
+                        <td>Fecha Indefinida:</td>
+                        
+                        <td><input type="checkbox" value="@Model.DateUndefined" disabled></td>
+                    </tr>
+
+                    <tr class="table__modal__row">
+
+                        <td>Cuidados de la mascota:</td>
+
+                        <td>@Model.DescriptionPetCare</td>
+
+                    </tr>
+
+                    <tr class="table__modal__row">
+
+                        <td>Precio Final:</td>
+
+                        <td>@Model.FinalPrice</td>
+
+                    </tr>
+
+                    <tr class="table__modal__row">
+
+                        <td>Especialista:</td>
+                        @{
+                            var fullName = Model.Employee.Person?.PersonName + " " + Model.Employee.Person?.PersonSecondname;
+                        }
+
+                        <td>@fullName</td>
+                    </tr>
+
+                    <tr class="table__modal__row">
+                        <td>Tipo de Paquete:</td>
+                        <td>@Model.PackageType.PackageTypeDescription</td>
+                    </tr>
+
+                    <tr class="table__modal__row">
+                        <td>Nombre de la Mascota:</td>
+                        <td>@Model.Pet.PetName</td>
+                    </tr>
+
+                    <tr class="table__modal__row">
+
+                        <td>Nombre del Dueño:</td>
+
+                        <td>@Model.Pet.User.Person.PersonName</td>
+
+                    </tr>
+
+                    <tr class="table__modal__row">
+
+                        <td>Numero de Habitacion:</td>
+
+                        <td>@Model.Room.RoomId</td>
+
+                    </tr>
+
+                    <tr class="table__modal__row">
+
+                        <td>Tipo de Estancia:</td>
+
+                        <td>@Model.StayType.StayTypeDescription</td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
